@@ -1,0 +1,10 @@
+.stats {
+  background: url('../../assets/images/bg-stats.png') fixed 0 0/cover #eee;
+  background-position-y: -250px;
+  text-align: center;
+}
+
+.stats h1 {
+  font-size: 3.2em;
+  font-weight: 600
+}

@@ -1,0 +1,43 @@
+.search.search-container.jumbotron {
+  padding: 1em 0;
+}
+
+.result-tabs.nav.nav-tabs {
+  border: 0 none;
+  justify-content: center;
+}
+
+.result-tabs .nav-item .nav-link {
+  color: #ddd;
+  transition: color 0.3s ease 0s;
+  padding: 0.5em 0;
+  margin: 0 1.5em;
+  position: relative;
+  cursor: pointer;
+}
+
+.result-tabs .nav-item .active-tab.nav-link {
+  color: #ecf0f1;
+}
+
+.result-tabs .nav-item .nav-link, .result-tabs .nav-item .nav-link:hover {
+  border: 0 none;
+}
+
+.result-tabs .nav-item .nav-link::before {
+    background: #ecf0f1;
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.1s ease 0s;
+    width: 100%;
+}
+
+.result-tabs .nav-item .active-tab.nav-link::before {
+    transform: scale3d(1, 1, 1);
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

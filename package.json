@@ -1,0 +1,27 @@
+{
+  "name": "acl-elrec",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://djbarnwal.github.io/ACL-Frontend",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-router-dom": "^4.1.2",
+    "react-transition-group": "^1.1.3",
+    "reactstrap": "^4.8.0",
+    "recharts":"^1.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}

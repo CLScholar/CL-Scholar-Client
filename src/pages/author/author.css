@@ -1,0 +1,57 @@
+.author-page {
+  text-align: center;
+}
+
+.author-page .jumbotron {
+  background-image: url('../../assets/images/bg-author.jpg');
+  background-size: cover;
+  color: #fff;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.author-page .nav.nav-tabs {
+  border: 0 none;
+  justify-content: center;
+}
+
+.author-page .nav-item .nav-link {
+  color: #ddd;
+  transition: color 0.3s ease 0s;
+  padding: 0.75em 0;
+  margin: 0 1.5em;
+  position: relative;
+  cursor: pointer;
+}
+
+.author-page .nav-item .active-tab.nav-link {
+  color: #ecf0f1;
+}
+
+.author-page .nav-item .nav-link, .author-page .nav-item .nav-link:hover {
+  border: 0 none;
+}
+
+.author-page .nav-item .nav-link::before {
+    background: #ecf0f1;
+    bottom: 0;
+    content: "";
+    height: 4px;
+    left: 0;
+    position: absolute;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.1s ease 0s;
+    width: 100%;
+}
+
+.author-page .nav-item .active-tab.nav-link::before {
+    transform: scale3d(1, 1, 1);
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.author-page h1 {
+  font-weight: 200;
+  text-transform: capitalize;
+}

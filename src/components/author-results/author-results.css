@@ -1,0 +1,11 @@
+.author-results .container {
+  max-width: 1000px;
+}
+
+.author-results h3 {
+  text-transform: capitalize;
+}
+
+.author-results a:hover {
+  text-decoration: none;
+}

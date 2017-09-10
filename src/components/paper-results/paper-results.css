@@ -1,0 +1,11 @@
+.paper-results .container {
+  max-width: 1000px;
+}
+
+.paper-results h5 {
+  padding: 0.25em 0;
+}
+
+.paper-results a:hover {
+  text-decoration: none;
+}

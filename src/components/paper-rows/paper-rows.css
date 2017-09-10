@@ -1,0 +1,38 @@
+.toggled.container {
+  text-align: left;
+}
+
+.paper {
+  text-align: left;
+}
+
+.paper-id {
+  font-weight: 800;
+  color: #a7a7a7;
+}
+
+.paper .badge {
+  background-color: #C7C7C7;
+  font-size: 14px;
+}
+
+.paper a {
+  color: #292b2c;
+}
+
+.paper a:hover {
+  text-decoration: none;
+}
+
+.citations {
+    align-self: center;
+}
+
+ hr {
+  width: 100%;
+}
+
+.coauthors a {
+  margin: 0 5px;
+  text-transform: capitalize;
+}

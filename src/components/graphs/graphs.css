@@ -1,0 +1,19 @@
+.graphs {
+  text-align: center;
+}
+
+.graphs h1, .subheading{
+  font-weight: 600;
+}
+
+.info {
+  align-self: center;
+}
+
+.chart1 p b {
+  color: #4EB2F5;
+}
+
+.chart2 p b {
+  color: #2ECC71;
+}

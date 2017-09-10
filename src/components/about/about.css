@@ -1,0 +1,12 @@
+.about {
+  text-align: center;
+  background: #fefefe;
+}
+
+.about h2 {
+  font-weight: 200;
+}
+
+.about p {
+  text-align: justify;
+}

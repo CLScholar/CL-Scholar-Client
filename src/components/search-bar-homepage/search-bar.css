@@ -1,0 +1,22 @@
+.search-bar.container {
+    max-width: 900px;
+    padding: 40px 0;
+}
+
+.search-bar input {
+  padding: 15px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.search-bar .btn {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.search-bar .nav-link {
+  color: #777;
+  transition: all ease 0.4s;
+}
+
+.search-bar .nav-link:hover, .search-bar .nav-link.active {
+  color: #fff;
+}
