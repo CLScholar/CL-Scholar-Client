@@ -5,7 +5,7 @@ import './footer.css';
 const Footer = () => {
   return (
       <div className="footer p-5">
-        <a className="logo" href="https://mozilla.org">
+        <a className="logo" href="http://www.cnergres.iitkgp.ac.in/ACLAKG/">
           <img src={footerLogo} alt="Logo"/>
         </a>
         <p>

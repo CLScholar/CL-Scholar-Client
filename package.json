@@ -2,7 +2,7 @@
   "name": "acl-elrec",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://djbarnwal.github.io/ACL-Frontend",
+  "homepage": "http://www.cnergres.iitkgp.ac.in/ACLAKG/",
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-alpha.6",

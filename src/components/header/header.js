@@ -28,22 +28,19 @@ export default class Header extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="p-2" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink href="/ACLAKG">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/search">Search</NavLink>
+                <NavLink href="/ACLAKG/search">Search</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/">The Team</NavLink>
+                <NavLink href="/ACLAKG/team">The Team</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/">Year Wise Stats</NavLink>
+                <NavLink href="/ACLAKG/contact">Contact Us</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/components/">Contact Us</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/components/">About Us</NavLink>
+                <NavLink href="/ACLAKG/about">About Us</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

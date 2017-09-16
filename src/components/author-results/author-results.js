@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {Container} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import {ACL_API} from '../../config';
 import axios from 'axios';
 import './author-results.css';
-
-// MAKE ENV vars remove hardcoded URLs
-const ACL_API = 'http://localhost:4000/api/';
 
 class AuthorResults extends Component {
   constructor(props) {
@@ -65,7 +63,7 @@ class AuthorResults extends Component {
   }
 
   render() {
-
+    console.log(process.env);
     let list = null;
     if (this.state.data) {
       list = this.getAuthors();

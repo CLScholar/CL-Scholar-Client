@@ -11,7 +11,15 @@ export default class AuthorStats extends Component {
 
     this.findCollaborators = this.findCollaborators.bind(this);
     this.findYearWiseData = this.findYearWiseData.bind(this);
-    console.log(this.props.topics);
+    this.findTotalCitations = this.findTotalCitations.bind(this);
+  }
+
+  findTotalCitations() {
+    let totalCitations = 0
+    for (const paper of this.props.papers) {
+      totalCitations = totalCitations + paper.citations;
+    }
+    return totalCitations;
   }
 
   findCollaborators() {
@@ -89,6 +97,7 @@ export default class AuthorStats extends Component {
   }
 
   render() {
+    console.log(this.props.papers);
     return (
       <section className="author-stats py-5">
         <Container>
@@ -102,7 +111,7 @@ export default class AuthorStats extends Component {
             </Col>
             <Col xs="12" md="4">
               <div className="stat-box">
-                <h1>256</h1>
+                <h1>{this.findTotalCitations()}</h1>
                 <p>Total Citations</p>
               </div>
             </Col>

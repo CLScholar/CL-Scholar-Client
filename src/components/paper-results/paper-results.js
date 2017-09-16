@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {Container} from 'reactstrap';
+import {ACL_API} from '../../config';
 import axios from 'axios';
 import PaperRows from '../paper-rows/paper-rows';
 import './paper-results.css';
-
-// MAKE ENV vars remove hardcoded URLs
-const ACL_API = 'http://localhost:4000/api/';
 
 class PaperResults extends Component {
   constructor(props) {

@@ -9,11 +9,11 @@ export default class Stats extends Component {
         <Container className="py-3">
           <Row>
             <Col xs="12" md="4">
-              <h1>45k+</h1>
+              <h1>39k+</h1>
               <p>Papers in database</p>
             </Col>
             <Col xs="12" md="4">
-              <h1>38k+</h1>
+              <h1>34k+</h1>
               <p>Authors</p>
             </Col>
             <Col xs="12" md="4">

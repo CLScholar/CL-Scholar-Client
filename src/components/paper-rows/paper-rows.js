@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Badge, Collapse, Container } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import {ACL_API} from '../../config';
 import axios from 'axios';
 import './paper-rows.css';
-
-// MAKE ENV vars remove hardcoded URLs
-const ACL_API = 'http://localhost:4000/api/';
 
 class PaperRows extends Component {
   constructor(props) {

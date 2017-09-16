@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Jumbotron, Container, TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import {ACL_API} from '../../config';
 import Publications from '../../components/publications/publications';
 import AuthorStats from '../../components/author-stats/author-stats';
 import PreLoader from '../../components/preloader/preloader';
@@ -20,7 +21,7 @@ export default class Author extends Component {
   }
 
   componentWillMount() {
-    let url = 'http://localhost:4000/api/authors/';
+    let url = `${ACL_API}authors/`;
 
     axios.get(url + this.props.match.params._id)
     .then(response => {

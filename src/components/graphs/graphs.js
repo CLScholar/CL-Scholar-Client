@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import './graphs.css';
-import {data1, data2} from '../data'; // ONE IS DUMMY DATA
+import {data1} from '../data';
 
 export default class Graphs extends Component {
   render() {
@@ -14,10 +14,10 @@ export default class Graphs extends Component {
           <Container className="chart1 py-4">
             <Row>
               <Col className="info" md="4">
-                <h1>48000</h1>
+                <h1>39000</h1>
                 <p className="subheading">Papers and increasing</p>
-                <p>Over the last 3 years the average increase has been of
-                  <b> 156% more</b> than the previous 3 years
+                <p>Over the last 4 years the average increase has been of
+                  <b> 156% more</b> than the previous 4 years
                 </p>
               </Col>
               <Col md="8">
@@ -37,21 +37,21 @@ export default class Graphs extends Component {
           <Container className="chart2 py-4">
             <Row>
               <Col className="info" md="4">
-                <h1>27000</h1>
+                <h1>34000</h1>
                 <p className="subheading">authors database</p>
                 <p>The increase in new authors has been <b>more than double </b>
                   this year than the previous year
                 </p>
               </Col>
               <Col md="8">
-                <BarChart width={700} height={300} data={data2}
+                <BarChart width={700} height={300} data={data1}
                       margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                 <XAxis tickLine={false} dataKey="name"/>
+                 <XAxis tickLine={false} dataKey="year"/>
                  <YAxis tickLine={false} axisLine={false} />
                  <CartesianGrid vertical={false} strokeDasharray="3 3"/>
                  <Tooltip/>
                  <Legend />
-                 <Bar dataKey="views" fill="#2ecc71" />
+                 <Bar dataKey="publications" fill="#2ecc71" />
                 </BarChart>
               </Col>
             </Row>
