@@ -1,0 +1,27 @@
+.paper-page {
+  text-align: center;
+}
+
+.paper-page .jumbotron {
+  background-image: url('../../assets/images/bg-author.jpg');
+  background-size: cover;
+  color: #fff;
+  margin-bottom: 0;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.paper-page h1 {
+  font-weight: 200;
+  text-transform: capitalize;
+  line-height: 1.4em;
+}
+
+.paper-container {
+  text-align: left;
+}
+
+.coauthors a {
+  text-transform: capitalize;
+  padding: 0 4px;
+}

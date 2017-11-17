@@ -4,6 +4,7 @@ import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Homepage from './pages/homepage/homepage';
 import Author from './pages/author/author';
+import Paper from './pages/paper/paper';
 import About from './components/about/about';
 import Search from './pages/search/search';
 import Team from './pages/team';
@@ -18,6 +19,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Homepage}/>
             <Route path='/author/:_id' component={Author}/>
+            <Route path='/paper/:_id' component={Paper}/>
             <Route path='/search' component={Search}/>
             <Route path='/team' component={Team}/>
             <Route path='/about' component={About}/>
