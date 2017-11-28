@@ -4,11 +4,11 @@
 
 .stat-box {
   background: #fff;
-  padding: 30px 0;
+  padding: 20px 0;
   box-shadow: 0 28px 40px 0 #f0f0f3;
   border-radius: 5px;
 }
 
 .author-stats .row {
-  justify-content: space-around;
+  justify-content: center;
 }

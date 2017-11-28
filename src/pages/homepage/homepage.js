@@ -13,8 +13,7 @@ export default class Homepage extends Component {
         <Jumbotron className="search-container">
           <h1 className="display-5">48,000 NLP Research Papers and counting</h1>
           <p className="lead">
-            This is a simple hero unit, a simple Jumbotron-style component for
-            calling extra attention to featured content or information.
+            A search engine for research papers in the field on NLP
            </p>
           <SearchBar/>
         </Jumbotron>

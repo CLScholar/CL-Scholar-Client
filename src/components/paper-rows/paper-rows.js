@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Col, Badge, Collapse, Container } from 'reactstrap';
+import { Row, Col} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import {ACL_API} from '../../config';
-import axios from 'axios';
 import './paper-rows.css';
 
 class PaperRows extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
 
   render() {
-    console.log(this.props.id);
     return (
       <Link className="paper-row" target="_blank" to={`/paper/${this.props.id}`}>
         <Row>

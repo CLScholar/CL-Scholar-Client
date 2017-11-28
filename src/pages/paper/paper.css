@@ -1,5 +1,6 @@
 .paper-page {
   text-align: center;
+  background-color: #fbfbfb;
 }
 
 .paper-page .jumbotron {
@@ -24,4 +25,21 @@
 .coauthors a {
   text-transform: capitalize;
   padding: 0 4px;
+}
+
+.author-col {
+	align-self: center;
+	text-align: center;
+}
+
+.paper-stats{
+  justify-content: center;
+  text-align: center;
+}
+
+.stat-box {
+  background: #fff;
+  padding: 20px 0;
+  box-shadow: 0 28px 40px 0 #f0f0f3;
+  border-radius: 5px;
 }

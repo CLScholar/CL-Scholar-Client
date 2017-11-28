@@ -12,7 +12,7 @@ const Team = () => {
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
               <CardBlock>
-                <CardTitle>Ritam Dutt</CardTitle>
+                <CardTitle>Mayank Singh</CardTitle>
                 <CardSubtitle>Sentiment Analysis</CardSubtitle>
                 <CardText>A short description of the work done for this project by the above person</CardText>
                 <Button>Website</Button>
@@ -23,7 +23,7 @@ const Team = () => {
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
               <CardBlock>
-                <CardTitle>Dhiraj Kumar</CardTitle>
+                <CardTitle>Ritam Dutt</CardTitle>
                 <CardSubtitle>Online System</CardSubtitle>
                 <CardText>A short description of the work done for this project by the above person</CardText>
                 <Button>Website</Button>
@@ -34,7 +34,7 @@ const Team = () => {
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
               <CardBlock>
-                <CardTitle>Dhiraj Kumar</CardTitle>
+                <CardTitle>Rajarshi Haldar</CardTitle>
                 <CardSubtitle>Online System</CardSubtitle>
                 <CardText>A short description of the work done for this project by the above person</CardText>
                 <Button>Website</Button>
@@ -47,7 +47,7 @@ const Team = () => {
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
               <CardBlock>
-                <CardTitle>Dhiraj Kumar</CardTitle>
+                <CardTitle>Sohan Patro</CardTitle>
                 <CardSubtitle>Online System</CardSubtitle>
                 <CardText>A short description of the work done for this project by the above person</CardText>
                 <Button>Website</Button>
@@ -58,7 +58,7 @@ const Team = () => {
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
               <CardBlock>
-                <CardTitle>Dhiraj Kumar</CardTitle>
+                <CardTitle>Kushagra Goel</CardTitle>
                 <CardSubtitle>Online System</CardSubtitle>
                 <CardText>A short description of the work done for this project by the above person</CardText>
                 <Button>Website</Button>
@@ -69,7 +69,7 @@ const Team = () => {
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
               <CardBlock>
-                <CardTitle>Dhiraj Kumar</CardTitle>
+                <CardTitle>Pradeep Dogga</CardTitle>
                 <CardSubtitle>Online System</CardSubtitle>
                 <CardText>A short description of the work done for this project by the above person</CardText>
                 <Button>Website</Button>

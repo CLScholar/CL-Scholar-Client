@@ -12,6 +12,7 @@ export default class AuthorStats extends Component {
     this.findCollaborators = this.findCollaborators.bind(this);
     this.findYearWiseData = this.findYearWiseData.bind(this);
     this.findTotalCitations = this.findTotalCitations.bind(this);
+    this.allCollabs = this.allCollabs.bind(this);
   }
 
   findTotalCitations() {
@@ -87,40 +88,67 @@ export default class AuthorStats extends Component {
   }
 
   // H-index vs Year
-  findHIndex() {
+  findHIndex(gross = 0) {
+    console.log(this.props.hindex)
     let hindex = this.props.hindex;
 
     hindex = hindex.sort((a, b) => {
       return parseFloat(a.year) - parseFloat(b.year);
     });
+
+    if(gross) {
+      return hindex[hindex.length-1].index;
+    }
     return hindex;
   }
 
+  // Display all Collabotators
+  allCollabs() {
+    let collabs = [];
+    for (const paper of this.props.papers) {
+      collabs = collabs.concat(paper.collab_auths);
+    }
+    collabs = collabs.map(auth => {
+      return <span className="px-2">{auth}</span>
+    });
+    return collabs;
+  }
+
   render() {
-    console.log(this.props.papers);
     return (
-      <section className="author-stats py-5">
+      <section className="author-stats">
         <Container>
-          <h1 className="py-3">Author Stats</h1>
+          {/* <h1 className="py-1">Author Stats</h1> */}
           <Row className="py-5">
-            <Col xs="12" md="4">
+            <Col xs="12" md="3">
               <div className="stat-box">
-                <h1>{this.props.papers.length}</h1>
+                <h3>{this.props.papers.length}</h3>
                 <p>Pulished Papers</p>
               </div>
             </Col>
-            <Col xs="12" md="4">
+            <Col xs="12" md="3">
               <div className="stat-box">
-                <h1>{this.findTotalCitations()}</h1>
+                <h3>{this.findTotalCitations()}</h3>
                 <p>Total Citations</p>
               </div>
             </Col>
-            <Col xs="12" md="4">
+            <Col xs="12" md="3">
               <div className="stat-box">
-                <h1>{this.findCollaborators()}</h1>
+                <h3>{this.findCollaborators()}</h3>
                 <p>Collaborators per paper</p>
               </div>
             </Col>
+            <Col xs="12" md="3">
+              <div className="stat-box">
+                <h3>{this.findHIndex(1)}</h3>
+                <p>Gross H-index</p>
+              </div>
+            </Col>
+          </Row>
+          <h3 className="mb-5">Collabotators</h3>
+          <Row>
+            <p>Tore Amble&nbsp;&nbsp; Jan Hajic &nbsp;&nbsp;  Sharon Flank &nbsp;&nbsp;  Jiang Chen</p>
+            {/* <p>{this.allCollabs()}</p> */}
           </Row>
           <Row className="py-5">
             <Col xs="12" md="6">

@@ -72,22 +72,22 @@ class SearchBar extends Component {
               Conference
             </NavLink>
           </NavItem>
-          <NavItem>
+          {/* <NavItem>
             <NavLink
-              className={this.state.category === 4 ? "active" : null}
+              className={this.state.category === 5 ? "active" : null}
               href="#"
-              onClick={() => this.setState({category: 4})}>
+              onClick={() => this.setState({category: 5})}>
               Affiliation
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink
-              className={this.state.category === 4 ? "active" : null}
+              className={this.state.category === 6 ? "active" : null}
               href="#"
-              onClick={() => this.setState({category: 4})}>
+              onClick={() => this.setState({category: 6})}>
               Topic
             </NavLink>
-          </NavItem>
+          </NavItem> */}
         </Nav>
         <InputGroup>
           <Input
