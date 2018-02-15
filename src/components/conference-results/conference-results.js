@@ -73,7 +73,7 @@ class ConferenceResults extends Component {
             id = {paper.paper_id}
             title = {paper.title}
             year = {paper.year}
-            citations = {paper.cited.length}
+            citations = {paper.citations}
           />
         </div>
       );
@@ -85,8 +85,12 @@ class ConferenceResults extends Component {
 
     let list = null;
     if (this.state.data) {
-      list = this.getConferences();
-    } else {
+      if (this.state.data.length === 0) {
+        list  = <h2>Err! no result found</h2>
+      }
+      else list = this.getConferences();
+    }
+    else {
       list = <h1>Please wait, loading</h1>
     }
     return (

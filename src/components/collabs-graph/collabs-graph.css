@@ -1,0 +1,8 @@
+.sigma-scene, .sigma-mouse {
+    left: 0;
+}
+
+.sigma-scene {
+	border: 1px solid rgba(0,0,0,0.2);
+	border-style: none solid;
+}

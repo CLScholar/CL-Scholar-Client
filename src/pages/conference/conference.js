@@ -2,33 +2,34 @@ import React, {Component} from 'react';
 import { Jumbotron, Container, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import {ACL_API} from '../../config';
 import Publications from '../../components/publications/publications';
-import AuthorStats from '../../components/author-stats/author-stats';
+// import AuthorStats from '../../components/author-stats/author-stats';
 import PreLoader from '../../components/preloader/preloader';
+import CollabGraph from '../../components/collabs-graph/collabs-graph';
 import axios from 'axios';
-import './author.css';
+import './conference.css';
 
-export default class Author extends Component {
+export default class Conference extends Component {
   constructor(props, match) {
     super(props);
 
     this.state = {
-      author_data: null,
+      conference_data: null,
       loading: true,
       activeTab: '1'
     }
 
     this.toggle = this.toggle.bind(this);
     this.findTotalCitations = this.findTotalCitations.bind(this);
-    this.findCollaborators = this.findCollaborators.bind(this);
+    this.findImpact = this.findImpact.bind(this);
   }
 
   componentWillMount() {
-    let url = `${ACL_API}authors/`;
+    let url = `${ACL_API}conference/`;
 
-    axios.get(url + this.props.match.params._id)
+    axios.get(url + 11)
     .then(response => {
       this.setState({
-        author_data: response.data,
+        conference_data: response.data,
         loading: false
       });
     })
@@ -48,21 +49,18 @@ export default class Author extends Component {
   // Total Citations for card
   findTotalCitations() {
     let totalCitations = 0
-    for (const paper of this.state.author_data.papers) {
-      totalCitations = totalCitations + paper.citations;
+    for (const cit_data of this.state.conference_data.Yearwise_Citation) {
+      totalCitations = totalCitations + cit_data.number;
     }
     return totalCitations;
   }
 
-  // Collabs Per paper card
-  findCollaborators() {
-    let totalCollabs = 0
-    for (const paper of this.state.author_data.papers) {
-      totalCollabs = totalCollabs + paper.collab_auths.length;
+  findImpact() {
+    let totalImpact = 0
+    for (let year in this.state.conference_data.impact) {
+      totalImpact = totalImpact + this.state.conference_data.impact[year]
     }
-    let collabsPerPaper = totalCollabs/this.state.author_data.papers.length;
-    collabsPerPaper = collabsPerPaper.toFixed(2);
-    return collabsPerPaper;
+    return totalImpact.toFixed(2);
   }
 
   render() {
@@ -72,33 +70,28 @@ export default class Author extends Component {
         <div>
           <Jumbotron fluid>
             <Container fluid>
-              <h1 className="display-5">{this.state.author_data.name_list[0]}</h1>
+              <h1 className="display-5">{this.state.conference_data.name[0]}</h1>
               <Row className="pt-2 stats-row">
-                <Col xs="12" md="3">
+                <Col xs="12" md="4">
                   <div className="stat-box">
-                    <h3>{this.state.author_data.papers.length}</h3>
+                    <h3>{this.state.conference_data.papers.length}</h3>
                     <p>Pulished Papers</p>
                   </div>
                 </Col>
-                <Col xs="12" md="3">
+                <Col xs="12" md="4">
                   <div className="stat-box">
                     <h3>{this.findTotalCitations()}</h3>
                     <p>Total Citations</p>
                   </div>
                 </Col>
-                <Col xs="12" md="3">
+                <Col xs="12" md="4">
                   <div className="stat-box">
-                    <h3>{this.findCollaborators()}</h3>
-                    <p>Collaborators per paper</p>
-                  </div>
-                </Col>
-                <Col xs="12" md="3">
-                  <div className="stat-box">
-                    <h3>{this.state.author_data.hindex["2017"] || 0 }</h3>
-                    <p>Gross H-index</p>
+                    <h3>{this.findImpact()}</h3>
+                    <p>Gross Impact</p>
                   </div>
                 </Col>
               </Row>
+              <h5 className="mb-3">Last held : {this.state.conference_data.last_held}</h5>
             </Container>
             <Nav tabs>
               <NavItem>
@@ -121,19 +114,20 @@ export default class Author extends Component {
           </Jumbotron>
           <TabContent activeTab={this.state.activeTab}>
             <TabPane tabId="1">
-              <AuthorStats
-                name = {this.state.author_data.name_list[0]}
-                id = {this.state.author_data.author_id}
-                history = {this.props.history}
-                collaborators_list = {this.state.author_data.collaborators_list}
-                hindex={this.state.author_data.hindex}
-                topics = {this.state.author_data.topics}
-                Yearwise_Publication = {this.state.author_data.Yearwise_Publication}
-                Yearwise_Citation = {this.state.author_data.Yearwise_Citation}
-              />
+              <Container>
+                {/* <h1 className="py-1">Author Stats</h1> */}
+                <h3 className="py-4">Collabotators</h3>
+                <CollabGraph
+                  history = {this.props.history}
+                  author = {this.state.conference_data.name[0]}
+                  id = {this.state.conference_data.conference_id}
+                  source = "conference"
+                  collabs={this.state.conference_data.collaborators_list} />
+
+              </Container>
             </TabPane>
             <TabPane tabId="2">
-              <Publications papers={this.state.author_data.papers}/>
+              <Publications papers={this.state.conference_data.papers}/>
             </TabPane>
           </TabContent>
 

@@ -63,11 +63,14 @@ class AuthorResults extends Component {
   }
 
   render() {
-    console.log(process.env);
     let list = null;
     if (this.state.data) {
-      list = this.getAuthors();
-    } else {
+      if (this.state.data.length === 0) {
+        list  = <h2>Err! no result found</h2>
+      }
+      else list = this.getAuthors();
+    }
+    else {
       list = <h1>Please wait, loading</h1>
     }
     return (

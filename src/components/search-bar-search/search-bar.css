@@ -20,3 +20,20 @@
 .search-bar .nav-link:hover, .search-bar .nav-link.active {
   color: #fff;
 }
+
+.search-bar .input-group {
+	margin-bottom: 2em;
+}
+
+.nlpquery .btn {
+	border-radius: 0;
+	color: #fff;
+	border-color: #fff;
+	cursor: pointer;
+  margin-top: 1em;
+}
+
+.nlpquery .btn:hover {
+  background: #fff;
+  color: #000;
+}

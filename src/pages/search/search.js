@@ -3,6 +3,7 @@ import SearchBar from '../../components/search-bar-search/search-bar-search';
 import AuthorResults from '../../components/author-results/author-results';
 import PaperResults from '../../components/paper-results/paper-results';
 import ConferenceResults from '../../components/conference-results/conference-results';
+import NLPSearch from '../../components/nlpsearch/nlpsearch';
 import { Jumbotron, TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import './search.css';
 
@@ -68,7 +69,7 @@ export default class Search extends Component {
                 className={this.state.activeTab === '1' ? "active-tab" : null}
                 onClick={() => { this.toggle('1'); }}
               >
-                Papers
+                NLP Search
               </NavLink>
             </NavItem>
             <NavItem>
@@ -87,17 +88,28 @@ export default class Search extends Component {
                 Conferences
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink
+                className={this.state.activeTab === '4' ? "active-tab" : null}
+                onClick={() => { this.toggle('4'); }}
+              >
+                Papers
+              </NavLink>
+            </NavItem>
           </Nav>
         </Jumbotron>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <PaperResults search={this.state.search} />
+            <NLPSearch search={this.state.search} />
           </TabPane>
           <TabPane tabId="2">
             <AuthorResults search={this.state.search} />
           </TabPane>
           <TabPane tabId="3">
             <ConferenceResults search={this.state.search} />
+          </TabPane>
+          <TabPane tabId="4">
+            <PaperResults search={this.state.search} />
           </TabPane>
         </TabContent>
       </div>

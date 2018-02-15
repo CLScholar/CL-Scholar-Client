@@ -5,3 +5,17 @@
 .publications .container {
   max-width: 1000px;
 }
+
+.sort {
+  text-align: left;
+}
+
+.sort span {
+    padding: 0 15px;
+    cursor: pointer;
+    transition: all ease 0.4s;
+}
+
+.sort span.active {
+  font-weight: bold;
+}

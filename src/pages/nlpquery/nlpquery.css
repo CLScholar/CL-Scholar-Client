@@ -8,21 +8,12 @@
   font-family: 'Fira Sans', sans-serif;
 }
 
-.search-bar .btn {
-  font-family: 'Fira Sans', sans-serif;
-}
-
-.search-bar .nav-link {
-  color: #777;
-  transition: all ease 0.4s;
-}
-
-.search-bar .nav-link:hover, .search-bar .nav-link.active {
-  color: #fff;
-}
-
 .search-bar .input-group {
 	margin-bottom: 2em;
+}
+
+.search-bar.container {
+	padding: 30px 0 0 0;
 }
 
 .nlpquery .btn {
@@ -36,4 +27,22 @@
 .nlpquery .btn:hover {
   background: #fff;
   color: #000;
+}
+
+.queryresult {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.jsonCell, .jsonColumn {
+	padding: 0 58px;
+	text-align: left;
+}
+
+.plot.container {
+	margin-top: 3em;
+}
+
+.plot .recharts-wrapper {
+    margin: 0 auto;
 }

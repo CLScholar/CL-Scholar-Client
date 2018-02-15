@@ -15,7 +15,7 @@ class PaperRows extends Component {
               </h6>
             </Col>
             <Col className="citations" xs="12" md="2">
-              <h6><b>{this.props.citations}</b> Citations</h6>
+              <h6><b>{this.props.citations}</b></h6>
             </Col>
             <hr className="my-2" />
         </Row>

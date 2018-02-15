@@ -2,13 +2,12 @@
   background: #fbfbfb;
 }
 
-.stat-box {
-  background: #fff;
-  padding: 20px 0;
-  box-shadow: 0 28px 40px 0 #f0f0f3;
-  border-radius: 5px;
-}
-
 .author-stats .row {
   justify-content: center;
+  text-transform: capitalize;
+}
+
+.auth-collabs li {
+	display: inline-block;
+	padding: 0 15px;
 }
