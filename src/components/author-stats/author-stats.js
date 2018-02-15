@@ -6,54 +6,13 @@ import CollabGraph from '../collabs-graph/collabs-graph';
 import {Link} from 'react-router-dom';
 import {mapping} from '../topicsmap';
 
-// console.log(window.screen.width, window.screen.height);
-
 export default class AuthorStats extends Component {
   constructor(props) {
     super(props);
 
-    // this.findYearWiseData = this.findYearWiseData.bind(this);
     this.sortTopics = this.sortTopics.bind(this);
     this.showTopics = this.showTopics.bind(this);
   }
-
-  // Year Wise Data for plotting in graph
-  // findYearWiseData(type) {
-  //   let data;
-  //   let plotdata = [];
-  //   let plotpoint;
-  //   let yearcounter = 0;
-  //   let key = "";
-  //
-  //   if (type === 2) {
-  //     data = this.props.hindex;
-  //     key = "hindex";
-  //   }
-  //   else if (type === 1) {
-  //     data = this.props.Yearwise_Publication;
-  //     key = "publications";
-  //   }
-  //   else {
-  //     data = this.props.Yearwise_Citation;
-  //     key = "citations";
-  //   }
-  //
-  //   for (let year in data) {
-  //     if (!yearcounter) {
-  //       yearcounter = year // Base year
-  //     }
-  //     while (yearcounter != year) {
-  //       plotpoint  = {year: yearcounter, [key]: 0}
-  //       plotdata.push(plotpoint);
-  //       yearcounter++;
-  //     }
-  //     plotpoint  = {year: year, [key]: data[year]}
-  //     plotdata.push(plotpoint);
-  //     yearcounter++;
-  //     }
-  //   return plotdata;
-  // }
-
 
   sortTopics() {
     let items = this.props.topics;
