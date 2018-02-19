@@ -64,11 +64,11 @@ class Publications extends Component {
               onClick={() => this.setState({category: 1, pageOfItems: []})}>
               Citations
               </span>
-            <span
+            {/* <span
               className={this.state.category === 2 ? "active" : null}
               onClick={() => this.setState({category: 2, pageOfItems: []})}>
               Year
-            </span>
+            </span> */}
           </div>
           {this.state.pageOfItems.map(paper =>
             <PaperRows

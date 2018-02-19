@@ -2,7 +2,7 @@
   "name": "acl-elrec",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.cnergres.iitkgp.ac.in/ACLAKG/",
+  "homepage": "http://cnerg.iitkgp.ac.in/aclakg/",
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-alpha.6",
@@ -16,7 +16,7 @@
     "ts-react-json-table": "^0.1.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

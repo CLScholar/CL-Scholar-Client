@@ -20,10 +20,10 @@ class CollabGraph extends Component {
         // edges.push({id: `e2${i}`,source: author.author_id, target: this.props.id, label: "8", color: "#e67e22"})
       });
     }
-    else if ( this.props.source === "author_stats") {
+    else  {
       this.props.collabs.forEach((author,i) => {
         nodes.push({id: author.author_id, label: author.name});
-        edges.push({id: `e${i}`,source: this.props.id, target: author.author_id, label: author.score})
+        edges.push({id: i,source: this.props.id, target: author.author_id, label: author.score})
         // edges.push({id: `e2${i}`,source: author.author_id, target: this.props.id, label: "8", color: "#e67e22"})
       });
     }
@@ -37,19 +37,20 @@ class CollabGraph extends Component {
   }
 
   render() {
+
     return(
       <Sigma
         renderer="canvas"
         graph={this.graph}
-        onClickNode={e => this.openAuthor(`/author/${e.data.node.id}`)}
+        onClickNode={e => this.openAuthor(`/${this.props.source}/${e.data.node.id}`)}
         style={{maxWidth:"inherit", height:"500px"}}
         settings={{
           defaultNodeColor: '#3498DB',
-          drawEdges: true,
           clone: true,
           defaultEdgeColor: '#2C3E50',
           labelThreshold: 0,
           font: "inherit",
+          drawEdges: true,
           drawEdgeLabels: true,
           drawNodeLabels: true
         }}>

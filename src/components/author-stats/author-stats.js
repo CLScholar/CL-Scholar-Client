@@ -41,10 +41,10 @@ export default class AuthorStats extends Component {
     barTopics.delete("year");
     //Converting set to array
     barTopics = [...barTopics];
-    barTopics = barTopics.map(topic => {
+    barTopics = barTopics.map((topic,i) => {
       topic_data = parseInt(topic,10);
       topic_data = mapping[topic_data];
-      return <Bar dataKey={topic} name={topic_data.name} stackId="a" fill={topic_data.color} />
+      return <Bar key={i} dataKey={topic} name={topic_data.name} stackId="a" fill={topic_data.color} />
     });
     return barTopics;
   }
@@ -56,16 +56,15 @@ export default class AuthorStats extends Component {
           {/* <h1 className="py-1">Author Stats</h1> */}
           <h3 className="py-4">Collabotators</h3>
           <CollabGraph
-            history = {this.props.history}
             author = {this.props.name}
             id = {this.props.id}
-            source = "author_stats"
+            source = "author"
             collabs={this.props.collaborators_list} />
           <Row className="py-5">
             <Col xs="12" md="6">
               <h3 className="mb-5">YearWise Publications</h3>
 
-              <BarChart width={560} height={300} data={this.props.Yearwise_Citation}
+              <BarChart width={560} height={300} data={this.props.Yearwise_Publication}
                       margin={{top: 5, right: 30, left: 20, bottom: 15}}>
                  <XAxis tickLine={false} dataKey="year">
                    <Label offset={-10} position="insideBottom" >
@@ -87,7 +86,7 @@ export default class AuthorStats extends Component {
             <Col xs="12" md="6">
               <h3 className="mb-5">YearWise Citations</h3>
 
-              <BarChart width={560} height={300} data={this.props.Yearwise_Publication}
+              <BarChart width={560} height={300} data={this.props.Yearwise_Citation}
                       margin={{top: 5, right: 30, left: 20, bottom: 15}}>
                  <XAxis tickLine={false} dataKey="year">
                    <Label offset={-10} position="insideBottom" >

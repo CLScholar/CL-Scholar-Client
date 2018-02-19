@@ -2,8 +2,8 @@
 
 ### Bugs
 # Fix sorting on publications tab year/citation wise sorting
-# Fix Hindex on authors page
 # Fix collab graphs links
+# Fix name for conference query19,20
 # Fix topics name in topic vs year graph
 
 ### Performance Improvements

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Jumbotron, Container, TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
+import  {BarChart, Bar, XAxis, YAxis, Label, CartesianGrid, Tooltip, Legend} from 'recharts';
 import {ACL_API} from '../../config';
 import Publications from '../../components/publications/publications';
 // import AuthorStats from '../../components/author-stats/author-stats';
@@ -26,7 +27,7 @@ export default class Conference extends Component {
   componentWillMount() {
     let url = `${ACL_API}conference/`;
 
-    axios.get(url + 11)
+    axios.get(url + this.props.match.params._id)
     .then(response => {
       this.setState({
         conference_data: response.data,
@@ -118,7 +119,6 @@ export default class Conference extends Component {
                 {/* <h1 className="py-1">Author Stats</h1> */}
                 <h3 className="py-4">Collabotators</h3>
                 <CollabGraph
-                  history = {this.props.history}
                   author = {this.state.conference_data.name[0]}
                   id = {this.state.conference_data.conference_id}
                   source = "conference"
@@ -130,7 +130,54 @@ export default class Conference extends Component {
               <Publications papers={this.state.conference_data.papers}/>
             </TabPane>
           </TabContent>
+          <Container>
+            <Row className="py-5">
+              <Col xs="12" md="6">
+                <h3 className="mb-5">YearWise Publications</h3>
 
+                <BarChart width={560} height={300} data={this.state.conference_data.Yearwise_Citation}
+                  margin={{top: 5, right: 30, left: 20, bottom: 15}}>
+                  <XAxis tickLine={false} dataKey="year">
+                    <Label offset={-10} position="insideBottom" >
+                      Year
+                    </Label>
+                  </XAxis>
+                  <YAxis tickLine={false} axisLine={false}>
+                    <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
+                      Publications
+                    </Label>
+                  </YAxis>
+                  <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+                  <Tooltip/>
+                  <Legend />
+                  <Bar legendType="none" dataKey="number" fill="#8884d8"/>
+                </BarChart>
+
+              </Col>
+              <Col xs="12" md="6">
+                <h3 className="mb-5">YearWise Citations</h3>
+
+                <BarChart width={560} height={300} data={this.state.conference_data.Yearwise_Publication}
+                  margin={{top: 5, right: 30, left: 20, bottom: 15}}>
+                  <XAxis tickLine={false} dataKey="year">
+                    <Label offset={-10} position="insideBottom" >
+                      Year
+                    </Label>
+                  </XAxis>
+                  <YAxis tickLine={false} axisLine={false}>
+                    <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
+                      Citations
+                    </Label>
+                  </YAxis>
+                  <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+                  <Tooltip/>
+                  <Legend />
+                  <Bar legendType="none" dataKey="number" fill="#82ca9d"/>
+                </BarChart>
+
+              </Col>
+            </Row>
+          </Container>
         </div>
       );
     }

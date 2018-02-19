@@ -20,6 +20,7 @@ export default class Author extends Component {
     this.toggle = this.toggle.bind(this);
     this.findTotalCitations = this.findTotalCitations.bind(this);
     this.findCollaborators = this.findCollaborators.bind(this);
+    this.findHindex = this.findHindex.bind(this);
   }
 
   componentWillMount() {
@@ -43,6 +44,15 @@ export default class Author extends Component {
         activeTab: tab
       });
     }
+  }
+
+  // Find Hindex of author
+  findHindex() {
+    let index = 0;
+    if(this.state.author_data.hindex.length > 0) {
+      index = this.state.author_data.hindex[this.state.author_data.hindex.length-1].index
+    }
+    return index;
   }
 
   // Total Citations for card
@@ -94,7 +104,7 @@ export default class Author extends Component {
                 </Col>
                 <Col xs="12" md="3">
                   <div className="stat-box">
-                    <h3>{this.state.author_data.hindex["2017"] || 0 }</h3>
+                    <h3>{this.findHindex()}</h3>
                     <p>Gross H-index</p>
                   </div>
                 </Col>

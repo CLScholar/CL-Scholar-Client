@@ -39,6 +39,27 @@ export default class QueryResult extends Component {
       else if (this.props.data.meta.type === 2) {
         display = <JsonTable rows={this.props.data.docs} />
       }
+      else if (this.props.data.meta.type === 3) {
+        //Something will happen here
+        let docs = this.props.data.docs;
+        let vari = this.props.data.meta.var; //year
+        let sep_var = this.props.data.meta.sep_var; //conf
+        let count = this.props.data.meta.count; //num_papers
+        let objArray = [];
+        docs.forEach(doc => {
+          let obj = objArray.find(function (obj) { return obj[vari] === doc._id[vari]; });
+          let currentVar = doc._id[sep_var];
+          if(obj) {
+            obj[currentVar] = doc[count];
+          }
+          else {
+            objArray.push({[vari]: doc._id[vari], [currentVar]: doc[count]})
+          }
+        });
+        console.log("Please work", objArray);
+        let data = {docs: objArray, meta: this.props.data.meta}
+        display = <BarPlot status={this.props.status} data={data} />;
+      }
       else if (this.props.data.meta.type === 4) {
 
         let data = this.props.data.docs[0].cit_trend;
@@ -97,9 +118,8 @@ export default class QueryResult extends Component {
       // }
       else if (this.props.data.meta.type === 99) {
         display = (<div>
-          <h3>Something unexpected happened Sorry</h3>
-          <p>Try adding full name of authors</p>
-          <p>Try adding abbreviations of conferences</p>
+          <h3 className="mt-3">Something unexpected happened Sorry</h3>
+          <p>Try adding full name of authors<br /> Try adding abbreviations of conferences</p>
         </div>)
       }
 
@@ -112,11 +132,9 @@ export default class QueryResult extends Component {
     else {
       content = (<div>
                   <h3>{this.props.search}</h3>
-                  <h5>Please wait content is loading</h5>
+                  <h5>Please wait smart robots are working for your query</h5>
                 </div>);
     }
-
-
     return (
       <section className="queryresult mt-0 py-5">
         {content}

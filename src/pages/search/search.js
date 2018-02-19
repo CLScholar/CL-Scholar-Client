@@ -28,8 +28,8 @@ export default class Search extends Component {
         search: this.props.location.state.value,
         category: this.props.location.state.category
       })
-      if (parseInt(this.props.location.state.category,10) > 2) {
-        this.setState({activeTab: "" + (this.props.location.state.category - 1)})
+      if (parseInt(this.props.location.state.category,10) > 0) {
+        this.setState({activeTab: "" + this.props.location.state.category})
       }
     }
   }
@@ -39,8 +39,8 @@ export default class Search extends Component {
       search: searchState.search,
       category: searchState.category
     })
-    if (searchState.category > 1) {
-      this.setState({activeTab: "" + (searchState.category - 1)})
+    if (searchState.category > 0) {
+      this.setState({activeTab: "" + searchState.category})
     }
   }
 
@@ -77,7 +77,7 @@ export default class Search extends Component {
                 className={this.state.activeTab === '2' ? "active-tab" : null}
                 onClick={() => { this.toggle('2'); }}
               >
-                Authors
+                Papers
               </NavLink>
             </NavItem>
             <NavItem>
@@ -85,7 +85,7 @@ export default class Search extends Component {
                 className={this.state.activeTab === '3' ? "active-tab" : null}
                 onClick={() => { this.toggle('3'); }}
               >
-                Conferences
+                Authors
               </NavLink>
             </NavItem>
             <NavItem>
@@ -93,7 +93,7 @@ export default class Search extends Component {
                 className={this.state.activeTab === '4' ? "active-tab" : null}
                 onClick={() => { this.toggle('4'); }}
               >
-                Papers
+                Conferences
               </NavLink>
             </NavItem>
           </Nav>
@@ -103,13 +103,13 @@ export default class Search extends Component {
             <NLPSearch search={this.state.search} />
           </TabPane>
           <TabPane tabId="2">
-            <AuthorResults search={this.state.search} />
+            <PaperResults search={this.state.search} />
           </TabPane>
           <TabPane tabId="3">
-            <ConferenceResults search={this.state.search} />
+            <AuthorResults search={this.state.search} />
           </TabPane>
           <TabPane tabId="4">
-            <PaperResults search={this.state.search} />
+            <ConferenceResults search={this.state.search} />
           </TabPane>
         </TabContent>
       </div>

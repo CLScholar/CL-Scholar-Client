@@ -15,7 +15,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <BrowserRouter basename="/ACLAKG">
+    <BrowserRouter basename="/aclakg">
       <div className="App">
         <Header />
           <Switch>

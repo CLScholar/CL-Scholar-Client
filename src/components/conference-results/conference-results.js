@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container} from 'reactstrap';
 import {ACL_API} from '../../config';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import PaperRows from '../paper-rows/paper-rows';
 import './conference-results.css';
@@ -24,14 +25,7 @@ class ConferenceResults extends Component {
   }
 
   componentDidMount() {
-    if (!this.state.search) {
-      this.setState({search: 'a'}, () => {
-        this.getData();
-      });
-    }
-    else {
-      this.getData();
-    }
+    this.getData();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -43,10 +37,7 @@ class ConferenceResults extends Component {
   }
 
   getData() {
-    let url = ACL_API + 'papers/conferences';
-    if (this.state.search === '' ) {
-      this.setState({search: 'a'});
-    }
+    let url = ACL_API + 'conferences'
     axios.get(url, {
       params: {
         name: this.state.search
@@ -62,20 +53,11 @@ class ConferenceResults extends Component {
 
   getConferences() {
     let conferenceList = this.state.data;
-    conferenceList = conferenceList.map((paper,i) => {
+    conferenceList = conferenceList.map((conference,i) => {
       return (
-        // Will make this component ??
-        <div className="paper-conf" key={i}>
-          <h6><b>Conference: </b>{paper.conference}</h6>
-          <hr className="mt-1"/>
-          <PaperRows
-            key = {paper.paper_id}
-            id = {paper.paper_id}
-            title = {paper.title}
-            year = {paper.year}
-            citations = {paper.citations}
-          />
-        </div>
+        <Link key={i} to={`/conference/${conference.conference_id}`}>
+          <h3>{conference.name[0]}</h3>
+        </Link>
       );
     });
     return conferenceList;
