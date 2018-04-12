@@ -1,0 +1,10 @@
+.command-code {
+	background: #444;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	position: relative;
+	padding: 0.6em 1em;
+	font-size: 12px;
+	max-height: 350px;
+}

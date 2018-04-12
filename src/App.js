@@ -9,6 +9,7 @@ import Paper from './pages/paper/paper';
 import About from './components/about/about';
 import NLPQuery from './pages/nlpquery/nlpquery';
 import Search from './pages/search/search';
+import ApiHelp from './pages/api/api';
 import Team from './pages/team';
 import Contact from './pages/contact';
 import './App.css';
@@ -28,6 +29,7 @@ const App = () => {
             <Route path='/team' component={Team}/>
             <Route path='/about' component={About}/>
             <Route path='/contact' component={Contact}/>
+            <Route path='/api' component={ApiHelp}/>
           </Switch>
         <Footer />
       </div>

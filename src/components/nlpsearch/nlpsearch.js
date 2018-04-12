@@ -21,7 +21,6 @@ export default class NLPSearch extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.search);
       this.getData();
   }
 
@@ -35,16 +34,13 @@ export default class NLPSearch extends Component {
 
   getData() {
     // Search only if there is a valid input
-    console.log("In getData");
-    if (this.state.search.length > 2) {
+    if (this.state.search.length > 1) {
       this.setState({status: 'searching'});
       let url = ACL_API + 'nlpquery';
-      console.log(url);
       axios.post(url, {
         query: this.state.search,
       })
       .then(response => {
-        console.log(response.data);
         this.setState({data: response.data, status: 'searched'})
       })
       .catch(error => {
@@ -56,6 +52,7 @@ export default class NLPSearch extends Component {
   render() {
     return (
         <QueryResult
+          singleEntity={this.props.singleEntity}
           status={this.state.status}
           search={this.state.search}
           data={this.state.data}

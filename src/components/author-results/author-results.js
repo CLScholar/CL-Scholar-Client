@@ -54,7 +54,7 @@ class AuthorResults extends Component {
     authorList = authorList.map((author,i) => {
       return (
         // Will make this component
-        <Link key={i} to={`/author/${author.author_id}`}>
+        <Link key={i} target="_blank" to={`/author/${author.author_id}`}>
           <h3>{author.name_list[0]}</h3>
         </Link>
       );

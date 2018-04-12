@@ -3,7 +3,6 @@ import {Container} from 'reactstrap';
 import {ACL_API} from '../../config';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import PaperRows from '../paper-rows/paper-rows';
 import './conference-results.css';
 
 
@@ -55,7 +54,7 @@ class ConferenceResults extends Component {
     let conferenceList = this.state.data;
     conferenceList = conferenceList.map((conference,i) => {
       return (
-        <Link key={i} to={`/conference/${conference.conference_id}`}>
+        <Link key={i} target="_blank" to={`/conference/${conference.conference_id}`}>
           <h3>{conference.name[0]}</h3>
         </Link>
       );

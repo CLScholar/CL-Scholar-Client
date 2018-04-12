@@ -8,3 +8,7 @@ body {
 .App {
   font-family: 'Fira Sans', sans-serif;
 }
+
+.card-subtitle {
+  margin-bottom: 1em !important;
+}

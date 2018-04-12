@@ -9,15 +9,15 @@ export default class About extends Component {
         <Container>
           <h2 className="my-0 py-3">About Us</h2>
           <p className="py-3">
-            Welcome to the IIT Kharagpur's ACL Anthology
-            Network (All About NLP) interface. Here we have collected information
-            regarding all of the papers included in the many ACL venues. From
-            those papers, we have created several networks, including paper
-            citation, author citation, and author collaboration. Click here to
-            learn more about the project. The network is currently built using
-            ACL papers. This includes all papers up to and including those
-            published in 2014 which were successfully processed. Feel free to
-            visit The ACL Anthology to browse what is available.
+            We present CL Scholar, the ACL Anthology knowledge graph miner to
+            facilitate high-quality search and exploration of current research
+            progress in the computational linguistics community. It
+            periodically crawls, indexes and processes new incoming articles
+            in a completely automated fashion. The current system utilizes both
+            textual and network information for knowledge graph construction.
+            As an additional novel initiative, CL Scholar supports more than
+            1200 scholarly natural language queries along with standard
+            keyword-based search on constructed knowledge graph.
           </p>
         </Container>
       </section>

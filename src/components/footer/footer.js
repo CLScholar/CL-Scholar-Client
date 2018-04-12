@@ -1,5 +1,5 @@
 import React from 'react';
-import footerLogo from '../../assets/images/footerlogo.png'
+import footerLogo from '../../assets/images/footerlogo2.png'
 import './footer.css';
 
 const Footer = () => {
@@ -9,12 +9,12 @@ const Footer = () => {
           <img src={footerLogo} alt="Logo"/>
         </a>
         <p>
-          ACL Anthology is a database of NCL paper which is continuously
-          updated and maintained. This is a project made by scholars and
-          students of
-          <a href="http://www.iitkgp.ac.in"> IIT Kharagpur</a>
+          CL Scholar is a fully automated analytics and search engine for
+          papers in Computational Linguistics Community. This website is developed
+          and maintained by CNeRG Research Group of IIT Kharagpur
           <br />
-          Copyright © IIT Kharagpur and CNERG Research Group
+          Copyright © <a href="http://www.iitkgp.ac.in"> IIT Kharagpur</a> and
+          <a href="http://www.cnergres.iitkgp.ac.in/"> CNERG Research Group</a>
         </p>
       </div>
   )

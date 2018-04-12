@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardImg, CardText, CardBlock,
+import { Container, Row, Col, Card, CardImg, CardBlock,
   CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 const Team = () => {
@@ -10,69 +10,31 @@ const Team = () => {
         <Row className="my-5">
           <Col>
             <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+              <CardImg top width="100%" src={require('../assets/images/team/mayank.jpg')} alt="Card image cap" />
               <CardBlock>
                 <CardTitle>Mayank Singh</CardTitle>
-                <CardSubtitle>Sentiment Analysis</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
+                <CardSubtitle>Research Scholar</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='http://mayank4490.github.io/'><Button style={{cursor: 'pointer'}}>Website</Button></a>
               </CardBlock>
             </Card>
           </Col>
           <Col>
-            <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-              <CardBlock>
-                <CardTitle>Animesh Mukherjee</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
-              </CardBlock>
-            </Card>
+              <Card>
+                <CardImg top width="100%" src={require('../assets/images/team/pradeep.jpg')} alt="Card image cap" />
+                <CardBlock>
+                  <CardTitle>Pradeep Dogga</CardTitle>
+                  <CardSubtitle>Undergraduate Student</CardSubtitle>
+                  <a target="_blank" rel="noopener noreferrer" href='https://www.linkedin.com/in/pradeep-dogga-iit-kgp'><Button style={{cursor: 'pointer'}}>Website</Button></a>
+                </CardBlock>
+              </Card>
           </Col>
           <Col>
             <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-              <CardBlock>
-                <CardTitle>Pawan Goyal</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
-              </CardBlock>
-            </Card>
-          </Col>
-        </Row>
-        <Row className="my-5">
-          <Col>
-            <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+              <CardImg top width="100%" src={require('../assets/images/team/sohan.jpg')} alt="Card image cap" />
               <CardBlock>
                 <CardTitle>Sohan Patro</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
-              </CardBlock>
-            </Card>
-          </Col>
-          <Col>
-            <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-              <CardBlock>
-                <CardTitle>Kushagra Goel</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
-              </CardBlock>
-            </Card>
-          </Col>
-          <Col>
-            <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-              <CardBlock>
-                <CardTitle>Pradeep Dogga</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
+                <CardSubtitle>Undergraduate Student</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='https://github.com/Sohanpatro/'><Button style={{cursor: 'pointer'}}>Website</Button></a>
               </CardBlock>
             </Card>
           </Col>
@@ -80,34 +42,53 @@ const Team = () => {
         <Row className="my-5">
           <Col>
             <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-              <CardBlock>
-                <CardTitle>Rajarshi Mukherjee</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
-              </CardBlock>
-            </Card>
-          </Col>
-          <Col>
-            <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
-              <CardBlock>
-                <CardTitle>Ritam Dutt</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
-              </CardBlock>
-            </Card>
-          </Col>
-          <Col>
-            <Card>
-              <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
+              <CardImg top width="100%" src={require('../assets/images/team/dhiraj.jpg')} alt="Card image cap" />
               <CardBlock>
                 <CardTitle>Dhiraj Kumar</CardTitle>
-                <CardSubtitle>Online System</CardSubtitle>
-                <CardText>A short description of the work done for this project by the above person</CardText>
-                <Button>Website</Button>
+                <CardSubtitle>Undergraduate Student</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='http://djbarnwal.github.io/'><Button style={{cursor: 'pointer'}}>Website</Button></a>
+              </CardBlock>
+            </Card>
+          </Col>
+          <Col>
+            <Card>
+              <CardImg top width="100%" src={require('../assets/images/team/ritam.jpg')} alt="Card image cap" />
+              <CardBlock>
+                <CardTitle>Ritam Dutt</CardTitle>
+                <CardSubtitle>Undergraduate Student</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='https://github.com/ShoRit'><Button style={{cursor: 'pointer'}}>Website</Button></a>
+              </CardBlock>
+            </Card>
+          </Col>
+          <Col xs='4'>
+            <Card>
+              <CardImg top width="100%" src={require('../assets/images/team/rajarshi.jpg')} alt="Card image cap" />
+              <CardBlock>
+                <CardTitle>Rajarshi Haldar</CardTitle>
+                <CardSubtitle>Undergraduate Student</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='http://rajarshihaldar.com/'><Button style={{cursor: 'pointer'}}>Website</Button></a>
+              </CardBlock>
+            </Card>
+          </Col>
+        </Row>
+        <Row className="my-5">
+          <Col xs='4'>
+            <Card>
+              <CardImg top width="100%" src={require('../assets/images/team/animesh.png')} alt="Card image cap" />
+              <CardBlock>
+                <CardTitle>Animesh Mukherjee</CardTitle>
+                <CardSubtitle>Professor, IIT KGP</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='http://cse.iitkgp.ac.in/~animeshm/'><Button style={{cursor: 'pointer'}}>Website</Button></a>
+              </CardBlock>
+            </Card>
+          </Col>
+          <Col xs='4'>
+            <Card>
+              <CardImg top width="100%" src={require('../assets/images/team/pawang.png')} alt="Card image cap" />
+              <CardBlock>
+                <CardTitle>Pawan Goyal</CardTitle>
+                <CardSubtitle>Professor, IIT KGP</CardSubtitle>
+                <a target="_blank" rel="noopener noreferrer" href='http://cse.iitkgp.ac.in/~pawang/'><Button style={{cursor: 'pointer'}}>Website</Button></a>
               </CardBlock>
             </Card>
           </Col>

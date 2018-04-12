@@ -22,6 +22,7 @@ export default class Conference extends Component {
     this.toggle = this.toggle.bind(this);
     this.findTotalCitations = this.findTotalCitations.bind(this);
     this.findImpact = this.findImpact.bind(this);
+    this.getTopCollabs = this.getTopCollabs.bind(this);
   }
 
   componentWillMount() {
@@ -56,12 +57,27 @@ export default class Conference extends Component {
     return totalCitations;
   }
 
+  getTopCollabs() {
+    let collabs = this.state.conference_data.collaborators_list.slice(0,10);
+    collabs = collabs.map(collab => {
+      return <li className='collabItem' key={collab.conference_id}><a href={`/aclakg/conference/${collab.conference_id}`}>{collab.name}</a></li>
+    });
+    return collabs;
+  }
+
   findImpact() {
     let totalImpact = 0
-    for (let year in this.state.conference_data.impact) {
-      totalImpact = totalImpact + this.state.conference_data.impact[year]
+    let count = 0
+    for (let object of this.state.conference_data.impact) {
+      totalImpact = totalImpact + object.value
+      count = count + 1;
     }
-    return totalImpact.toFixed(2);
+    if(count !== 0 ){
+      return (totalImpact/count).toFixed(2);
+    }
+    else {
+      return 0.00;
+    }
   }
 
   render() {
@@ -76,19 +92,19 @@ export default class Conference extends Component {
                 <Col xs="12" md="4">
                   <div className="stat-box">
                     <h3>{this.state.conference_data.papers.length}</h3>
-                    <p>Pulished Papers</p>
+                    <p>Publications</p>
                   </div>
                 </Col>
                 <Col xs="12" md="4">
                   <div className="stat-box">
                     <h3>{this.findTotalCitations()}</h3>
-                    <p>Total Citations</p>
+                    <p>Citations</p>
                   </div>
                 </Col>
                 <Col xs="12" md="4">
                   <div className="stat-box">
                     <h3>{this.findImpact()}</h3>
-                    <p>Gross Impact</p>
+                    <p>Average Impact</p>
                   </div>
                 </Col>
               </Row>
@@ -100,7 +116,7 @@ export default class Conference extends Component {
                   className={this.state.activeTab === '1' ? "active-tab" : null}
                   onClick={() => { this.toggle('1'); }}
                 >
-                  Author Stats
+                  Conference Stats
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -116,68 +132,74 @@ export default class Conference extends Component {
           <TabContent activeTab={this.state.activeTab}>
             <TabPane tabId="1">
               <Container>
-                {/* <h1 className="py-1">Author Stats</h1> */}
-                <h3 className="py-4">Collabotators</h3>
-                <CollabGraph
-                  author = {this.state.conference_data.name[0]}
-                  id = {this.state.conference_data.conference_id}
-                  source = "conference"
-                  collabs={this.state.conference_data.collaborators_list} />
 
+                <Row>
+                  <Col xs="9">
+                    <h3 className="py-4">Citing Communities</h3>
+                    <CollabGraph
+                      history = {this.props.history}
+                      author = {this.state.conference_data.name[0]}
+                      id = {this.state.conference_data.conference_id}
+                      source = "conference"
+                      collabs={this.state.conference_data.collaborators_list} />
+                    </Col>
+                    <Col xs="3">
+                      <h3 className='mt-4 topCollab'>Top Collaborators</h3>
+                      <ul>{this.getTopCollabs()}</ul>
+                    </Col>
+                </Row>
+                <Row className="py-5">
+                  <Col xs="12" md="6">
+                    <h3 className="mb-5">Citation Trend</h3>
+
+                    <BarChart width={560} height={300} data={this.state.conference_data.Yearwise_Citation}
+                      margin={{top: 5, right: 30, left: 20, bottom: 15}} maxBarSize={45}>
+                      <XAxis tickLine={false} dataKey="year">
+                        <Label offset={-10} position="insideBottom" >
+                          Year
+                        </Label>
+                      </XAxis>
+                      <YAxis tickLine={false} allowDecimals={false} axisLine={false}>
+                        <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
+                          Citations
+                        </Label>
+                      </YAxis>
+                      <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+                      <Tooltip/>
+                      <Legend />
+                      <Bar legendType="none" dataKey="number" fill="#8884d8"/>
+                    </BarChart>
+
+                  </Col>
+                  <Col xs="12" md="6">
+                    <h3 className="mb-5">Publication Trend</h3>
+
+                    <BarChart width={560} height={300} data={this.state.conference_data.Yearwise_Publication}
+                      margin={{top: 5, right: 30, left: 20, bottom: 15}} maxBarSize={45}>
+                      <XAxis tickLine={false} dataKey="year">
+                        <Label offset={-10} position="insideBottom" >
+                          Year
+                        </Label>
+                      </XAxis>
+                      <YAxis tickLine={false} allowDecimals={false} axisLine={false}>
+                        <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
+                          Publications
+                        </Label>
+                      </YAxis>
+                      <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+                      <Tooltip/>
+                      <Legend />
+                      <Bar legendType="none" dataKey="number" fill="#82ca9d"/>
+                    </BarChart>
+
+                  </Col>
+                </Row>
               </Container>
             </TabPane>
             <TabPane tabId="2">
               <Publications papers={this.state.conference_data.papers}/>
             </TabPane>
           </TabContent>
-          <Container>
-            <Row className="py-5">
-              <Col xs="12" md="6">
-                <h3 className="mb-5">YearWise Publications</h3>
-
-                <BarChart width={560} height={300} data={this.state.conference_data.Yearwise_Citation}
-                  margin={{top: 5, right: 30, left: 20, bottom: 15}}>
-                  <XAxis tickLine={false} dataKey="year">
-                    <Label offset={-10} position="insideBottom" >
-                      Year
-                    </Label>
-                  </XAxis>
-                  <YAxis tickLine={false} axisLine={false}>
-                    <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
-                      Publications
-                    </Label>
-                  </YAxis>
-                  <CartesianGrid vertical={false} strokeDasharray="3 3"/>
-                  <Tooltip/>
-                  <Legend />
-                  <Bar legendType="none" dataKey="number" fill="#8884d8"/>
-                </BarChart>
-
-              </Col>
-              <Col xs="12" md="6">
-                <h3 className="mb-5">YearWise Citations</h3>
-
-                <BarChart width={560} height={300} data={this.state.conference_data.Yearwise_Publication}
-                  margin={{top: 5, right: 30, left: 20, bottom: 15}}>
-                  <XAxis tickLine={false} dataKey="year">
-                    <Label offset={-10} position="insideBottom" >
-                      Year
-                    </Label>
-                  </XAxis>
-                  <YAxis tickLine={false} axisLine={false}>
-                    <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
-                      Citations
-                    </Label>
-                  </YAxis>
-                  <CartesianGrid vertical={false} strokeDasharray="3 3"/>
-                  <Tooltip/>
-                  <Legend />
-                  <Bar legendType="none" dataKey="number" fill="#82ca9d"/>
-                </BarChart>
-
-              </Col>
-            </Row>
-          </Container>
         </div>
       );
     }

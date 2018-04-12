@@ -11,9 +11,9 @@ export default class Homepage extends Component {
     return (
       <div>
         <Jumbotron className="search-container">
-          <h1 className="display-5">48,000 NLP Research Papers and counting</h1>
+          <h1 className="display-5">42,000 NLP Research Papers and counting</h1>
           <p className="lead">
-            A search engine for research papers in the field on NLP
+            A Fully Automated Interactive Engine for Analysis of Research Works
            </p>
           <SearchBar/>
         </Jumbotron>

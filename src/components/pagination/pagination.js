@@ -32,10 +32,9 @@ class PaginationBox extends Component {
 
         // get new pager object for specified page
         pager = this.getPager(items.length, page);
-
         // get new page of items from items array
         var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
-
+        // console.log(pageOfItems);
         // update state
         // this.setState({ pager: pager });
         this.setState({ pager }, () => this.props.onChangePage(pageOfItems))
@@ -47,7 +46,6 @@ class PaginationBox extends Component {
     getPager(totalItems, currentPage, pageSize) {
         // default to first page
         currentPage = currentPage || 1;
-
         // default page size is 5
         pageSize = pageSize || this.props.pageSize || 5;
 

@@ -15,10 +15,12 @@ export default class Search extends Component {
       search: '',
       page: 1,
       category: 1,
-      activeTab: "1"
+      activeTab: "1",
+      changedTab: 0
     }
 
     this.toggle = this.toggle.bind(this);
+    this.onSingleEntity = this.onSingleEntity.bind(this);
   }
 
   componentWillMount() {
@@ -34,10 +36,27 @@ export default class Search extends Component {
     }
   }
 
+  onSingleEntity(entity) {
+    if (!this.state.changedTab) {
+      this.setState({changedTab: 1});
+      if(this.state.activeTab === '1') {
+        if(entity === 'author') {
+          this.setState({activeTab: "3"})
+        }
+        else if (entity === 'conference') {
+          this.setState({activeTab: "4"})
+        }
+      }
+    }
+  }
+
   handleSearchBar(searchState) {
+    if(this.state.search !== searchState.search || this.state.category !== searchState.category) {
+      this.setState({changedTab: 0})
+    }
     this.setState({
       search: searchState.search,
-      category: searchState.category
+      category: searchState.category,
     })
     if (searchState.category > 0) {
       this.setState({activeTab: "" + searchState.category})
@@ -93,14 +112,14 @@ export default class Search extends Component {
                 className={this.state.activeTab === '4' ? "active-tab" : null}
                 onClick={() => { this.toggle('4'); }}
               >
-                Conferences
+                Venues
               </NavLink>
             </NavItem>
           </Nav>
         </Jumbotron>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <NLPSearch search={this.state.search} />
+            <NLPSearch singleEntity={this.onSingleEntity} search={this.state.search} />
           </TabPane>
           <TabPane tabId="2">
             <PaperResults search={this.state.search} />

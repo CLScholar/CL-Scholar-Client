@@ -13,26 +13,8 @@ class Publications extends Component {
       category: 1,
       pageOfItems: []
     }
-    this.sortbyYear = this.sortbyYear.bind(this);
+    // this.sortbyYear = this.sortbyYear.bind(this);
     this.onChangePage = this.onChangePage.bind(this);
-  }
-
-  sortbyYear() {
-    if(this.state.category === 1) {
-      return this.props.papers
-    }
-    let papers = this.props.papers.slice();;
-    let length = papers.length;
-    for (var i = 0; i < length; i++) {
-      for (var j = 0; j < (length - i - 1); j++) {
-        if(papers[j].paper_year > papers[j+1].paper_year) {
-          var tmp = papers[j];
-          papers[j] = papers[j+1];
-          papers[j+1] = tmp;
-        }
-      }
-    }
-    return papers;
   }
 
   onChangePage(pageOfItems) {
@@ -41,7 +23,7 @@ class Publications extends Component {
   }
 
   render() {
-    let papers_list = this.sortbyYear();
+    // let papers_list = this.sortbyYear();
     // console.log(papers_list);
     // let paperslist = papers_list.map((paper) => {
     // return (
@@ -58,12 +40,12 @@ class Publications extends Component {
       <section className="publications py-5">
         <Container>
           <h1 className="py-3 mb-4">Publications</h1>
-          <div className="pb-5 sort">Sort by :
-            <span
+          <div className="pb-5 sort">Sorted by <b>Citations</b>
+            {/* <span
               className={this.state.category === 1 ? "active" : null}
               onClick={() => this.setState({category: 1, pageOfItems: []})}>
               Citations
-              </span>
+              </span> */}
             {/* <span
               className={this.state.category === 2 ? "active" : null}
               onClick={() => this.setState({category: 2, pageOfItems: []})}>
@@ -78,7 +60,7 @@ class Publications extends Component {
               citations = {paper.citations}
             />
           )}
-          <PaginationBox pageSize={10} items={papers_list} onChangePage={this.onChangePage} />
+          <PaginationBox pageSize={10} items={this.props.papers} onChangePage={this.onChangePage} />
         </Container>
       </section>
     );

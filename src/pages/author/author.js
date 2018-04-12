@@ -87,25 +87,25 @@ export default class Author extends Component {
                 <Col xs="12" md="3">
                   <div className="stat-box">
                     <h3>{this.state.author_data.papers.length}</h3>
-                    <p>Pulished Papers</p>
+                    <p>Publications</p>
                   </div>
                 </Col>
                 <Col xs="12" md="3">
                   <div className="stat-box">
                     <h3>{this.findTotalCitations()}</h3>
-                    <p>Total Citations</p>
+                    <p>Citations</p>
                   </div>
                 </Col>
                 <Col xs="12" md="3">
                   <div className="stat-box">
                     <h3>{this.findCollaborators()}</h3>
-                    <p>Collaborators per paper</p>
+                    <p>Collaborations per paper</p>
                   </div>
                 </Col>
                 <Col xs="12" md="3">
                   <div className="stat-box">
                     <h3>{this.findHindex()}</h3>
-                    <p>Gross H-index</p>
+                    <p>H-index</p>
                   </div>
                 </Col>
               </Row>

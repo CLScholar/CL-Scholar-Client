@@ -42,6 +42,9 @@ export default class Header extends Component {
               <NavItem>
                 <NavLink href="/aclakg/about">About Us</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/aclakg/api">API</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {InputGroup, InputGroupButton, Input, Container} from 'reactstrap';
-import { Nav, NavItem, NavLink, Button } from 'reactstrap';
-import { Link } from 'react-router-dom'
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import './search-bar.css';
 
 export default class SearchBar extends Component {
@@ -54,7 +53,7 @@ export default class SearchBar extends Component {
               className={this.state.category === 1 ? "active" : null}
               href="#"
               onClick={() => this.setState({category: 1})}>
-              NLP Search
+              NL Query
             </NavLink>
           </NavItem>
           <NavItem>
@@ -62,7 +61,7 @@ export default class SearchBar extends Component {
               className={this.state.category === 2 ? "active" : null}
               href="#"
               onClick={() => this.setState({category: 2})}>
-              Paper Title
+              Paper
             </NavLink>
           </NavItem>
           <NavItem>
@@ -78,13 +77,13 @@ export default class SearchBar extends Component {
               className={this.state.category === 4 ? "active" : null}
               href="#"
               onClick={() => this.setState({category: 4})}>
-              Conference
+              Venue
             </NavLink>
           </NavItem>
         </Nav>
         <InputGroup>
           <Input
-            placeholder="Paper/Author/Conference Name"
+            placeholder="Ask me anything you want!"
             value={this.state.value}
             onChange={this.handleChange}
             onKeyDown={this.checkKey}

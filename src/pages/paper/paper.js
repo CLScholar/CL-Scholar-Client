@@ -81,7 +81,7 @@ export default class Paper extends Component {
     let urls;
     urls = this.state.paper_data.urls.map((url,i) => {
       return (
-        <li key={i}>{url}</li>
+        <li key={i}><a href={url}>{url}</a></li>
       );
     });
     urls.pop() //Removing last element due to defect in json as of now
@@ -135,27 +135,33 @@ export default class Paper extends Component {
 
             </Container>
           </Jumbotron>
-          <Container className="paper-container">
-            <Row className="py-5 text-center">
-              <h3 className="mb-5">Citation Trend</h3>
-              <BarChart width={1080} height={300} data={this.sortYear()}
-                      margin={{top: 5, right: 30, left: 20, bottom: 15}}>
-                <XAxis tickLine={false} dataKey="year">
-                  <Label offset={-10} position="insideBottom" >
-                    Year
-                  </Label>
-                </XAxis>
-                <YAxis tickLine={false} axisLine={false}>
-                  <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
-                    Citations
-                  </Label>
-                </YAxis>
-               <CartesianGrid vertical={false} strokeDasharray="3 3"/>
-               <Tooltip/>
-               <Legend />
-               <Bar legendType="none" dataKey="citation" fill="#8884d8"/>
-             </BarChart>
-            </Row>
+          <Container className="py-5 paper-container">
+              {(() => {
+                if(this.state.paper_data.citation_trend.length > 0)
+                return (
+                  <Row className="text-center">
+                    <h3 className="mb-5">Citation Trend</h3>
+                    <BarChart width={1080} height={300} data={this.state.paper_data.citation_trend}
+                            margin={{top: 5, right: 30, left: 20, bottom: 15}} maxBarSize={45}>
+                      <XAxis tickLine={false} dataKey="year">
+                        <Label offset={-10} position="insideBottom" >
+                          Year
+                        </Label>
+                      </XAxis>
+                      <YAxis tickLine={false} axisLine={false}>
+                        <Label angle={270} position='insideLeft' style={{ textAnchor: 'middle' }}>
+                          Citations
+                        </Label>
+                      </YAxis>
+                     <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+                     <Tooltip/>
+                     <Legend />
+                     <Bar legendType="none" dataKey="citation" fill="#8884d8"/>
+                   </BarChart>
+                 </Row>
+                )
+              })()}
+
             <div className="my-2">
               <h3 className="mb-2">Abstract</h3>
               <p>{this.state.paper_data.abstract || "None"}</p>

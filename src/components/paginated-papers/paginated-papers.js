@@ -30,7 +30,6 @@ class PaginatedPaper extends Component {
     this.display = <p>Loading...</p>;
     let callItems = displayItems.join(',');
     let url = ACL_API + 'papermeta/';
-    // console.log(url+callItems);
     axios.get(url + callItems)
     .then(response => {
       this.setState({data: response.data, loading: false});

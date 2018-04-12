@@ -16,8 +16,8 @@ class CollabGraph extends Component {
     if( this.props.source === "conference") {
       this.props.collabs.forEach((conference,i) => {
         nodes.push({id: conference.conference_id, label: conference.name});
-        edges.push({id: `e${i}`,source: this.props.id, target: conference.conference_id, label: conference.count})
-        // edges.push({id: `e2${i}`,source: author.author_id, target: this.props.id, label: "8", color: "#e67e22"})
+        edges.push({id: `e${i}`,source: this.props.id, target: conference.conference_id})
+        // edges.push({id: `e2${i}`,source: author.author_id, target: this.props.id, label:"" + conference.count})
       });
     }
     else  {
@@ -42,8 +42,8 @@ class CollabGraph extends Component {
       <Sigma
         renderer="canvas"
         graph={this.graph}
-        onClickNode={e => this.openAuthor(`/${this.props.source}/${e.data.node.id}`)}
-        style={{maxWidth:"inherit", height:"500px"}}
+        onClickNode={e => this.openAuthor(`/aclakg/${this.props.source}/${e.data.node.id}`)}
+        style={{width:"auto", height:"400px"}}
         settings={{
           defaultNodeColor: '#3498DB',
           clone: true,
@@ -55,7 +55,7 @@ class CollabGraph extends Component {
           drawNodeLabels: true
         }}>
         <NodeShapes default="circle"/>
-        <EdgeShapes default="tapered"/>
+        <EdgeShapes/>
         <NOverlap gridSize={15} maxIterations={200}/>
         <RelativeSize initialSize={15}/>
       </Sigma>
